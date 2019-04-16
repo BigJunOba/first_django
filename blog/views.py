@@ -4,10 +4,12 @@ from django.http import HttpResponse
 
 from blog.models import Article
 
+
 # Create your views here.
 
 def hello_world(request):
     return HttpResponse("Hello World")
+
 
 def article_content(request):
     article = Article.objects.all()[0]
@@ -23,3 +25,23 @@ def article_content(request):
                                                                                                   article_id,
                                                                                                   publish_date)
     return HttpResponse(return_str)
+
+
+def get_index_page(request):
+    all_article = Article.objects.all()
+    return render(request, 'index.html',
+                  {
+                      'article_list': all_article
+                  }
+                  )
+
+def get_detail_page(request):
+    curr_article = Article.objects.all()[0]
+    section_list = curr_article.content.split('\n')
+    return render(request, 'detail.html',
+                  {
+                      'curr_article': curr_article,
+                      'section_list': section_list
+                  }
+                  )
+

@@ -15,19 +15,15 @@
 <body>
 
 <div class="container page-header">
-    <h1>文章标题1</h1>
+    <h1>{{ curr_article.title }}</h1>
 </div>
 
 <div class="container body-main">
-    <div class="body-main">
-        <div>
-            <p>
-                如果你是一名专业的软件开发者，可能你必须使用几种 C/C++/JAVA
-                类库，并且发现通常编写/编译/测试/重新编译的周期是如此漫长。也许你正在为这些类库编写测试用例，但是发现这是一个让人烦躁的工作。又或者你已经完成了一个可以使用扩展语言的程序，但你并不想为此重新设计并实现一套全新的语言。
-            </p>
-        </div>
+    <div>
+        {% for section in section_list %}
+            <p>{{ section }}</p>
+        {% endfor %}
     </div>
-</div>
 </div>
 
 </body>

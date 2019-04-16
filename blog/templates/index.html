@@ -20,34 +20,23 @@
 <div class="container page-body">
     <div class="col-md-9" role="main">
         <div class="body-main">
+            {% for article in article_list %}
             <div>
-                <h2>文章标题1</h2>
+                <h2>{{ article.title }}</h2>
                 <p>
-                    如果你是一名专业的软件开发者，可能你必须使用几种 C/C++/JAVA 类库，并且发现通常编写/编译/测试/重新编译的周期是如此漫长。也许你正在为这些类库编写测试用例，但是发现这是一个让人烦躁的工作。又或者你已经完成了一个可以使用扩展语言的程序，但你并不想为此重新设计并实现一套全新的语言。
+                    {{ article.brief_content }}
                 </p>
             </div>
-            <div>
-                <h2>文章标题2</h2>
-                <p>
-                    虽然你能够通过编写 Unix shell 脚本或 Windows 批处理文件来处理其中的某些任务，但 Shell 脚本更适合移动文件或修改文本数据，并不适合编写 GUI 应用程序或游戏；虽然你能够使用 C/C++/JAVA 编写程序，但即使编写一个简单的 first-draft 程序也有可能耗费大量的开发时间。相比之下，Python 更易于使用，无论在 Windows、Mac OS X 或 Unix 操作系统上它都会帮助你更快地完成任务。
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
     <div class="col-md-3" role="complementary">
         <div>
             <h2>最新文章</h2>
-            <h4><a href="#">最新文章1</a> </h4>
-            <h4><a href="#">最新文章2</a> </h4>
-            <h4><a href="#">最新文章3</a> </h4>
-            <h4><a href="#">最新文章4</a> </h4>
-            <h4><a href="#">最新文章5</a> </h4>
-            <h4><a href="#">最新文章6</a> </h4>
-            <h4><a href="#">最新文章7</a> </h4>
-            <h4><a href="#">最新文章8</a> </h4>
-            <h4><a href="#">最新文章9</a> </h4>
-            <h4><a href="#">最新文章10</a> </h4>
+            {% for article in article_list %}
+                <h4><a href="#">{{ article.title }}</a> </h4>
+            {% endfor %}
         </div>
     </div>
 </div>
